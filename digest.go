@@ -14,7 +14,7 @@ type DigestAlgorithm string
 
 const (
 	DigestSha256 DigestAlgorithm = "SHA-256"
-	DigestSha512                 = "SHA-512"
+	DigestSha512 DigestAlgorithm = "SHA-512"
 )
 
 var digestToDef = map[DigestAlgorithm]crypto.Hash{
