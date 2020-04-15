@@ -23,6 +23,18 @@ type verifier struct {
 	sigStringFn func(http.Header, []string, int64, int64) (string, error)
 }
 
+func (v *verifier) Signature() string {
+  return v.signature
+}
+
+func (v *verifier) Created() int64 {
+  return v.created
+}
+
+func (v *verifier) Expires() int64 {
+  return v.expires
+}
+
 func newVerifier(h http.Header, sigStringFn func(http.Header, []string, int64, int64) (string, error)) (*verifier, error) {
 	scheme, s, err := getSignatureScheme(h)
 	if err != nil {

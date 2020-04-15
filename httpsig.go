@@ -192,6 +192,12 @@ type Verifier interface {
 	// using an RSA based algorithm, then the public key is expected to be
 	// of type *rsa.PublicKey.
 	Verify(pKey crypto.PublicKey, algo Algorithm) error
+        // Gets the parsed Signature
+        Signature() string
+        // Gets the parsed Created value or 0 if no created value was given
+        Created() int64
+        // Gets the parsed Expires value or 0 if no expires value was given 
+        Expires() int64
 }
 
 const (
